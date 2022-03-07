@@ -20,7 +20,7 @@ $filters_title = get_field('filters_title');
         <h3><?php echo $filters_title; ?></h3>
         <?php get_template_part('template-parts/pages/home/content', 'filters'); ?>
       <?php } ?>
-      <?php# get_template_part('template-parts/pages/home/content', 'isotop'); ?>
+      <?php get_template_part('template-parts/pages/home/content', 'isotop'); ?>
     </div>
 </main>
 <!--main section end-->

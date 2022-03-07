@@ -10,6 +10,9 @@ function load_script_css() {
 
     // for jQuery
 	wp_enqueue_script('jquery_mini_cdn','https://code.jquery.com/jquery-3.6.0.min.js');
+
+    // for isotop
+	wp_enqueue_script('isotop_mini_cdn','https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js');
 }
 
 
