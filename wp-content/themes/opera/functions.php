@@ -143,9 +143,11 @@ function filter_ajax(){
         <?php
         }
         $queryArr['tax_query'] = array(
-            'taxonomy' => 'tool-cat',
-            'field' => 'term_id',
-            'terms' => $data_atr
+            array(
+                'taxonomy' => 'tool-cat',
+                'field' => 'term_id',
+                'terms' => $data_atr,
+            ),
         );
     }?>
     <ul class="filter-items">
@@ -167,9 +169,11 @@ function sub_filter_ajax(){
 		'post_type' => 'tool',
         'post_status' => array('publish'),
         'tax_query' => array(
+            array(
             'taxonomy' => 'tool-cat',
             'field' => 'term_id',
-            'terms' => $data_atr
+            'terms' => $data_atr,
+            ),
         ),
 	);
     show_tools($queryArr);
@@ -184,6 +188,35 @@ function sub_filter_ajax(){
 // used to display list of tools
 function show_tools($queryArr) {
     $res = new wp_Query($queryArr);
-    echo "<pre>";
-    print_r($res);
+    if ($res->found_posts < 1) {
+        ?>
+        <li><p>No More Tools :(</p></li>
+        <?php
+    }
+    while ( $res->have_posts() ) { 
+        $res->the_post(); 
+        $logo = get_field('tool_logo');
+        $link = get_field('tool_link');
+        ?>
+        <li>
+        <?php 
+        if ( $logo ) {
+            if ( $link ) {
+                $link_url = $link['url'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
+               ?>
+               <a href="<?php echo $link_url; ?>" target="<?php echo $link_target; ?>"> 
+                <?php 
+            } ?>
+            <img src='<?php echo $logo['url']; ?>' alt='<?php echo $logo['alt']; ?>'>
+            <?php 
+            if ( $link ) { ?>
+               </a>
+            <?php 
+            }
+        }  
+        ?>
+        </li>
+        <?php
+    }
 }
