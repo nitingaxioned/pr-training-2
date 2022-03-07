@@ -54,3 +54,41 @@ function register_custom_sidebar(){
  'after_title' => '</h4>',
  ));
 }
+
+###################################
+# // Coustom post types tool
+###################################
+
+add_action('init', 'custom_post_types');
+
+function custom_post_types() {
+	register_post_type('tool', array(
+        'public' => true,
+        'show_in_rest' => true,
+        'labels' => array(
+          'name' => 'Tool',
+          'add_new_item' => 'Add New Tool',
+          'edit_item' => 'Edit Tool',
+          'all_items' => 'All Tools',
+          'singular_name' => 'Tool',
+        ),
+        'has_archive' => true,
+        'publicly_queryable' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-plus-alt',
+        'supports' => array('title')
+    ));
+
+    //taxonomys for tool
+    
+	register_taxonomy('tool-cat', 'tool', array(
+	  'hierarchical' => true,
+	  'labels' => array(
+		'name' => _x( 'Tool Category', 'taxonomy general name' ),
+		'singular_name' => _x( 'Category', 'taxonomy singular name' ),
+		'menu_name' => 'Tool Category'
+	  ),
+	  'rewrite'       => true, 
+	  'query_var'     => true 
+	));
+}
