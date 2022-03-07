@@ -92,3 +92,98 @@ function custom_post_types() {
 	  'query_var'     => true 
 	));
 }
+
+###################################
+# // Ajax Functions
+###################################
+
+// Scripts for ajax
+add_action( 'wp_enqueue_scripts', 'ajax_script' );
+function ajax_script() {
+    // for ajax
+    wp_enqueue_script( 'ajax-script', get_theme_file_uri('/js/script.js'), array('jquery') );
+	wp_localize_script(
+        'ajax-script',
+        'ajax_object',
+        array( 
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'hook' => 'filter',
+            'sub_hook' => 'sub_filter',
+        )
+    );
+}
+
+// hooks for filter ajax
+add_action( 'wp_ajax_filter', 'filter_ajax' );
+add_action( 'wp_ajax_nopriv_filter', 'filter_ajax' );
+
+// callback for filter_ajax
+function filter_ajax(){
+    $data_atr = $_POST['data_atr'];
+	$queryArr = array(
+		'posts_per_page' => -1,
+		'post_type' => 'tool',
+        'post_status' => array('publish'),
+	);
+    if($data_atr != "") {
+        $tool_cat = get_categories(array('taxonomy' => 'tool-cat','hide_empty' => false,));
+        if ($tool_cat) { ?>
+            <ul class="filter-btns">
+                <?php
+                foreach($tool_cat as $val){
+                    if ($val->parent == $data_atr) {
+                        ?>
+                            <li>
+                                <button class="btn tool_sub_cat_btn" data-atr="<?php echo $val->term_id; ?>"><?php echo $val->name; ?></button>
+                            </li>
+                        <?php
+                    }
+                }?>
+            </ul>
+        <?php
+        }
+        $queryArr['tax_query'] = array(
+            'taxonomy' => 'tool-cat',
+            'field' => 'term_id',
+            'terms' => $data_atr
+        );
+    }?>
+    <ul class="filter-items">
+        <?php show_tools($queryArr); ?>
+    </ul>
+    <?php
+    die();
+}
+
+// hooks for sub_filter ajax
+add_action( 'wp_ajax_sub_filter', 'sub_filter_ajax' );
+add_action( 'wp_ajax_nopriv_sub_filter', 'sub_filter_ajax' );
+
+// callback for sub_filter_ajax
+function sub_filter_ajax(){
+    $data_atr = $_POST['data_atr'];
+	$queryArr = array(
+		'posts_per_page' => -1,
+		'post_type' => 'tool',
+        'post_status' => array('publish'),
+        'tax_query' => array(
+            'taxonomy' => 'tool-cat',
+            'field' => 'term_id',
+            'terms' => $data_atr
+        ),
+	);
+    show_tools($queryArr);
+	die();
+}
+
+
+###################################
+# // Custom Functions
+###################################
+
+// used to display list of tools
+function show_tools($queryArr) {
+    $res = new wp_Query($queryArr);
+    echo "<pre>";
+    print_r($res);
+}
