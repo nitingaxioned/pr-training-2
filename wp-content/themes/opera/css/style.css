@@ -201,9 +201,23 @@ h4 {
     padding: 10px 0 5px;
 }
 
-.list{
+.list {
     width: 50%;
     margin: auto;
+}
+
+.filter-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-items li {
+  width: 10%;
+  margin: 20px;
+}
+
+.filter-items img {
+  width: 100%;
 }
 
 /*=================================
