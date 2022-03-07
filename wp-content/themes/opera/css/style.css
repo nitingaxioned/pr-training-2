@@ -143,6 +143,8 @@ nav{ width: 100%; }
 img { width: 20%; }
   
 .nav-list li a:hover {  color: #fafafa; }
+
+.hide-me{ display: none; }
   
 /*=================================
     Header styling ends here

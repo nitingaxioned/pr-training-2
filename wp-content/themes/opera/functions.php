@@ -107,54 +107,9 @@ function ajax_script() {
         'ajax_object',
         array( 
             'ajax_url' => admin_url( 'admin-ajax.php' ),
-            'hook' => 'filter',
             'sub_hook' => 'sub_filter',
         )
     );
-}
-
-// hooks for filter ajax
-add_action( 'wp_ajax_filter', 'filter_ajax' );
-add_action( 'wp_ajax_nopriv_filter', 'filter_ajax' );
-
-// callback for filter_ajax
-function filter_ajax(){
-    $data_atr = $_POST['data_atr'];
-	$queryArr = array(
-		'posts_per_page' => -1,
-		'post_type' => 'tool',
-        'post_status' => array('publish'),
-	);
-    if($data_atr != "") {
-        $tool_cat = get_categories(array('taxonomy' => 'tool-cat','hide_empty' => false,));
-        if ($tool_cat) { ?>
-            <ul class="filter-btns">
-                <?php
-                foreach($tool_cat as $val){
-                    if ($val->parent == $data_atr) {
-                        ?>
-                            <li>
-                                <button class="btn tool_sub_cat_btn" data-atr="<?php echo $val->term_id; ?>"><?php echo $val->name; ?></button>
-                            </li>
-                        <?php
-                    }
-                }?>
-            </ul>
-        <?php
-        }
-        $queryArr['tax_query'] = array(
-            array(
-                'taxonomy' => 'tool-cat',
-                'field' => 'term_id',
-                'terms' => $data_atr,
-            ),
-        );
-    }?>
-    <ul class="filter-items">
-        <?php show_tools($queryArr); ?>
-    </ul>
-    <?php
-    die();
 }
 
 // hooks for sub_filter ajax
