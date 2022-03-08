@@ -22,6 +22,9 @@ $experience = get_field('experience');
                 <?php echo $experience; ?>
             </div>
         <?php } ?>
+        <div class="contact-form">
+            <?php echo do_shortcode('[contact-form-7 id="44" title="Contact For Job"]'); ?>
+        </div>
     </div>
 </main>
 <!--main section end-->

@@ -75,4 +75,12 @@ jQuery(document).ready(function () {
     //         }
     //     });
     // });
+
+    // isotop fot job filter
+    jQuery(".type").on('change',function() {
+        let data_iso = this.value;
+        $('.careers-list').isotope({
+            filter : data_iso,
+        });
+    });
 });

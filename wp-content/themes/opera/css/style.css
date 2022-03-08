@@ -226,13 +226,21 @@ h4 {
 
 .careers-list {
   display: flex;
-  justify-content: space-between;
-
+  flex-wrap: wrap;
+  padding: 20px;
 }
+
 .careers-list li {
-  width: 45%;
+  width: 40%;
+  margin: 1%;
   padding: 1% 2%;
   border: 1px solid #151515;
+}
+
+.contact-form {
+  padding: 45px;
+  width: 70%;
+  margin: auto;
 }
 
 /*=================================

@@ -1,5 +1,5 @@
 <?php
-$job_typ = get_categories(array('taxonomy' => 'job_typ','hide_empty' => true,));
+$job_typ = get_categories(array('taxonomy' => 'job-typ','hide_empty' => true,));
 $queryArr = array(
     'posts_per_page' => -1,
     'post_type' => 'job',
@@ -8,6 +8,16 @@ $queryArr = array(
 $res = new wp_Query($queryArr);
 ?>
 <div>
+    <select name="type" class='type'>
+        <option value="*">All</option>
+        <?php
+        if ($job_typ) {
+            foreach($job_typ as $val){ ?>
+                    <option value="<?php echo ".".$val->slug;?>"><?php echo $val->name;?></option>
+            <?php }
+        }
+        ?>
+    </select>
     <ul class="careers-list"><?php 
         if ($res->found_posts < 1) {
             ?>
