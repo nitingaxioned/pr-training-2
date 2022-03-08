@@ -66,7 +66,7 @@ $res = new wp_Query($queryArr);
                 <?php
                 if ( $logo ) { ?>
                     <img src='<?php echo $logo['url']; ?>' alt='<?php echo $logo['alt']; ?>'>
-                <? }
+                <?php }
                 if ( $title && $link) {
                     $link_url = $link['url'];
                     $link_target = $link['target'] ? $link['target'] : '_self'; ?>

@@ -21,14 +21,14 @@ jQuery(document).ready(function () {
     filtersubtools("");
 });
 
-function filtersubtools(data_atr) {
+function filtersubtools(data_atrbute) {
     jQuery('.filter-items').html("<li><p>Loading....</p></li>");
     ajax_status = true;
     jQuery.ajax({
         url : ajax_object.ajax_url,
         data : {
             action : ajax_object.sub_hook,
-            data_atr : data_atr,
+            data_atr : data_atrbute,
         },
         type : 'post',
         success : function(data) {
@@ -43,14 +43,13 @@ function filtersubtools(data_atr) {
 }
 
 jQuery(document).ready(function () {
-    // // click functionality for iso btn
-    // jQuery(".iso-btn").click(function() {
-    //     let data_iso = $(this).attr("data-iso");
-    //     $('.filter-items-isotop').isotope({
-    //         itemSelector: data_iso,
-    //         layoutMode: 'fitRows'
-    //     });
-    // });
+    // click functionality for iso btn
+    jQuery(".iso-btn").click(function() {
+        let data_iso = $(this).attr("data-iso");
+        $('.filter-items-isotop').isotope({
+            filter : data_iso,
+        });
+    });
 
     // tab filteration
     jQuery(".tool_cats").click(function() {
@@ -64,16 +63,16 @@ jQuery(document).ready(function () {
         });
     });
 
-    //  tab filteration
-    jQuery(".iso-btn").click(function() {
-        let data_iso = $(this).attr("data-iso");
-        data_iso = data_iso.substring(1, data_iso.length);
-        $('.tool').each(function() {
-            if($(this).hasClass(data_iso)) {
-                $(this).removeClass("hide-me");
-            } else  {
-                $(this).addClass("hide-me");
-            }
-        });
-    });
+    // filteration with jquery
+    // jQuery(".iso-btn").click(function() {
+    //     let data_iso = $(this).attr("data-iso");
+    //     data_iso = data_iso.substring(1, data_iso.length);
+    //     $('.tool').each(function() {
+    //         if($(this).hasClass(data_iso)) {
+    //             $(this).removeClass("hide-me");
+    //         } else  {
+    //             $(this).addClass("hide-me");
+    //         }
+    //     });
+    // });
 });
