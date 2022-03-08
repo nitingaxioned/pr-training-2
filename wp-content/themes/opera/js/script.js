@@ -18,6 +18,7 @@ jQuery(document).ready(function () {
             filtersubtools(data_atr);
         }
     });
+    filtersubtools("");
 });
 
 function filtersubtools(data_atr) {
@@ -40,3 +41,39 @@ function filtersubtools(data_atr) {
         }
     });
 }
+
+jQuery(document).ready(function () {
+    // // click functionality for iso btn
+    // jQuery(".iso-btn").click(function() {
+    //     let data_iso = $(this).attr("data-iso");
+    //     $('.filter-items-isotop').isotope({
+    //         itemSelector: data_iso,
+    //         layoutMode: 'fitRows'
+    //     });
+    // });
+
+    // tab filteration
+    jQuery(".tool_cats").click(function() {
+        let data_atrr = $(this).attr("data-atr");
+        jQuery(".tool_sub_cat").each(function( i ) {
+            if( $(this).attr("data-prt") == data_atrr ) {
+                $(this).parent().removeClass("hide-me");
+            } else  {
+                $(this).parent().addClass("hide-me");
+            }
+        });
+    });
+
+    //  tab filteration
+    jQuery(".iso-btn").click(function() {
+        let data_iso = $(this).attr("data-iso");
+        data_iso = data_iso.substring(1, data_iso.length);
+        $('.tool').each(function() {
+            if($(this).hasClass(data_iso)) {
+                $(this).removeClass("hide-me");
+            } else  {
+                $(this).addClass("hide-me");
+            }
+        });
+    });
+});

@@ -35,7 +35,7 @@ $tool_cat = get_categories(array('taxonomy' => 'tool-cat','hide_empty' => false,
             }
         ?>
     </ul>
-    <ul class="filter-items">
+    <ul class="filter-items filter-item">
         <li><p>Loading..</p></li>
     </ul>
 </div>

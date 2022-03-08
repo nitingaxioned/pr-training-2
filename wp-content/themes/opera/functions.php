@@ -126,14 +126,16 @@ function sub_filter_ajax(){
 		'posts_per_page' => -1,
 		'post_type' => 'tool',
         'post_status' => array('publish'),
-        'tax_query' => array(
+	);
+    if($data_atr != "" ) {
+        $queryArr['tax_query'] = array(
             array(
             'taxonomy' => 'tool-cat',
             'field' => 'term_id',
             'terms' => $data_atr,
             ),
-        ),
-	);
+        );
+    }
     show_tools($queryArr);
 	die();
 }
