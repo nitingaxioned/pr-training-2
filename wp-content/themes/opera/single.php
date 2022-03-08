@@ -14,7 +14,7 @@ $link = get_field('specific_link');
 <main>
     <div class="wrapper">
         <?php if($title) {?>
-            <h2><?php echo $title; ?></h2>
+            <h2><?php echo $title; ?>..</h2>
         <?php } ?>
         <?php if($author) {?>
             <p>Author: <?php echo $author; ?></p>
