@@ -83,7 +83,6 @@ function custom_post_types() {
     ));
 
     //taxonomys for tool
-    
 	register_taxonomy('tool-cat', 'tool', array(
 	  'hierarchical' => true,
 	  'labels' => array(
@@ -94,6 +93,47 @@ function custom_post_types() {
 	  'rewrite'       => true, 
 	  'query_var'     => true 
 	));
+
+    //post type for job
+    register_post_type('job', array(
+        'public' => true,
+        'show_in_rest' => true,
+        'labels' => array(
+          'name' => 'JoB',
+          'add_new_item' => 'Add New Job Post',
+          'edit_item' => 'Edit Job Post',
+          'all_items' => 'All Job Post',
+          'singular_name' => 'Job Post',
+        ),
+        'has_archive' => true,
+        'publicly_queryable' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-clipboard',
+        'supports' => array('title')
+    ));
+
+    //taxonomys for job
+	register_taxonomy('job-cat', 'job', array(
+        'hierarchical' => true,
+        'labels' => array(
+          'name' => _x( 'Job Category', 'taxonomy general name' ),
+          'singular_name' => _x( 'Job Category', 'taxonomy singular name' ),
+          'menu_name' => 'Job Categorys'
+        ),
+        'rewrite'       => true, 
+        'query_var'     => true 
+    ));
+
+    register_taxonomy('job-typ', 'job', array(
+        'hierarchical' => true,
+        'labels' => array(
+          'name' => _x( 'Job Type', 'taxonomy general name' ),
+          'singular_name' => _x( 'Job Type', 'taxonomy singular name' ),
+          'menu_name' => 'Job Type'
+        ),
+        'rewrite'       => true, 
+        'query_var'     => true 
+    ));
 }
 
 ###################################
