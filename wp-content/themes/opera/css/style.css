@@ -224,6 +224,17 @@ h4 {
   width: 100%;
 }
 
+.careers-list {
+  display: flex;
+  justify-content: space-between;
+
+}
+.careers-list li {
+  width: 45%;
+  padding: 1% 2%;
+  border: 1px solid #151515;
+}
+
 /*=================================
   main styling ends here
 =================================*/

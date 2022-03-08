@@ -129,7 +129,7 @@ function custom_post_types() {
         'labels' => array(
           'name' => _x( 'Job Type', 'taxonomy general name' ),
           'singular_name' => _x( 'Job Type', 'taxonomy singular name' ),
-          'menu_name' => 'Job Type'
+          'menu_name' => 'Job Types'
         ),
         'rewrite'       => true, 
         'query_var'     => true 
@@ -219,4 +219,12 @@ function show_tools($queryArr) {
         </li>
         <?php
     }
+}
+
+// to get sort disc from job role.
+function get_disc_50($desc) {
+    if(strlen($desc) > 50) {
+        $desc = substr($desc, 0, 97) . '...';
+    }
+    return $desc;
 }
