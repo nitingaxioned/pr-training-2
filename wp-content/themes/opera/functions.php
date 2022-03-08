@@ -99,7 +99,7 @@ function custom_post_types() {
         'public' => true,
         'show_in_rest' => true,
         'labels' => array(
-          'name' => 'JoB',
+          'name' => 'Job',
           'add_new_item' => 'Add New Job Post',
           'edit_item' => 'Edit Job Post',
           'all_items' => 'All Job Post',
