@@ -21,6 +21,7 @@ $filters_title = get_field('filters_title');
         <?php get_template_part('template-parts/pages/home/content', 'filters'); ?>
       <?php } ?>
       <?php get_template_part('template-parts/pages/home/content', 'isotop'); ?>
+      <?php get_template_part('template-parts/pages/home/content', 'slick'); ?>
     </div>
 </main>
 <!--main section end-->

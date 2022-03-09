@@ -82,5 +82,52 @@ jQuery(document).ready(function () {
         $('.careers-list').isotope({
             filter : data_iso,
         });
+        console.log("dd");
+    });
+});
+
+$(document).ready(function(){
+    // slick slide
+    $(".slick-slide-1").slick({
+        dots: false,
+        infinite: true,
+        speed: 50,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 100,
+        arrows: true,
+        responsive: [{
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+           breakpoint: 400,
+           settings: {
+              arrows: false,
+              slidesToShow: 1,
+              slidesToScroll: 1
+           }
+        }]
+    });
+
+    // for scroll effect on nav
+    $(window).scroll(function() {
+		let b = $(".nav-list");
+        let windowpos = $(window).scrollTop();
+        let pos = b.position(); 
+        if (windowpos > pos.top) {
+            b.addClass("padding-scroll");
+        } else {
+            b.removeClass("padding-scroll");
+        }
+	});
+
+    // for nav click
+    $("header .nav-list ul").click(function() {
+        $(this).toggleClass("show-hidden");
     });
 });

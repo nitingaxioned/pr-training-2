@@ -13,6 +13,14 @@ function load_script_css() {
 
     // for isotop
 	wp_enqueue_script('isotop_cdn','https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js');
+
+    // css & js for slick
+	wp_enqueue_style('slick-theme',get_theme_file_uri('/css/slick-theme.css'));
+	wp_enqueue_style('slick',get_theme_file_uri('/css/slick.css'));
+	wp_enqueue_script('slick_min',get_theme_file_uri('/js/slick.min.js'));
+
+    // for FontAwesome cdn
+	wp_enqueue_style('font_awesom_mini','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.csss');
 }
 
 
@@ -223,8 +231,8 @@ function show_tools($queryArr) {
 
 // to get sort disc from job role.
 function get_disc_50($desc) {
-    if(strlen($desc) > 50) {
-        $desc = substr($desc, 0, 97) . '...';
+    if(strlen($desc) > 70) {
+        $desc = substr($desc, 0, 67) . '...';
     }
     return $desc;
 }

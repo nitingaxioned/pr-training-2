@@ -1,5 +1,6 @@
 <?php
 $job_typ = get_categories(array('taxonomy' => 'job-typ','hide_empty' => true,));
+$mail = get_field('email');
 $queryArr = array(
     'posts_per_page' => -1,
     'post_type' => 'job',
@@ -7,9 +8,8 @@ $queryArr = array(
 );
 $res = new wp_Query($queryArr);
 ?>
-<div>
     <select name="type" class='type'>
-        <option value="*">All</option>
+        <option value="*">Show All</option>
         <?php
         if ($job_typ) {
             foreach($job_typ as $val){ ?>
@@ -38,6 +38,7 @@ $res = new wp_Query($queryArr);
                 } 
             }?>
             <li class="<?php echo $class_list ?>">
+                <a href="<?php echo $link_url; ?>">
                 <?php
                 if ( $title ) { ?>
                     <h3><?php echo $title ?></h3>
@@ -45,8 +46,14 @@ $res = new wp_Query($queryArr);
                 if ( $disc ) { ?>
                     <div><?php echo $disc; ?></div>
                 <?php } ?>
-                <a href="<?php echo $link_url; ?>">VIEW DETAILS</a>
+                <span>VIEW DETAILS</span>
+                </a>
             </li><?php
         }?>
     </ul>
+<div class="career-mail">
+    <p>Can’t find what you’re looking for?</p>
+    <a href="mailto:<?php echo $mail;?>">
+    <img src="https://axioned.com/wp-content/webp-express/webp-images/uploads/2021/04/email-500x500-1.png.webp" alt="mail">
+    <?php echo $mail;?></a>
 </div>
