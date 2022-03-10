@@ -130,4 +130,9 @@ $(document).ready(function(){
     $("header .nav-list ul").click(function() {
         $(this).toggleClass("show-hidden");
     });
+
+    // scrollyfy
+    $.scrollify({
+        section : ".scrollify-sec",
+    });
 });

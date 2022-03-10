@@ -21,6 +21,9 @@ function load_script_css() {
 
     // for FontAwesome cdn
 	wp_enqueue_style('font_awesom_mini','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.csss');
+
+    // cdn for scrollyfy 
+    wp_enqueue_script('cdn_mini_scrollyfy','https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js');
 }
 
 

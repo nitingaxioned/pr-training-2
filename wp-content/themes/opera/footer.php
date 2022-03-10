@@ -2,7 +2,11 @@
 <footer>
     <div class="wrapper">
         <div class="footer-intro">
-
+        <?php
+          if( function_exists('the_custom_logo')) {
+            the_custom_logo();
+          }
+        ?>
         </div>
         <div class="footer-nav">
             <nav>
