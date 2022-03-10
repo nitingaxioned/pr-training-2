@@ -115,7 +115,6 @@ header{
     z-index: 3;
     top: 0;
     width: 100%;
-    max-width: 1350px;
 }
   
 header .wrapper{ 
@@ -269,10 +268,6 @@ body {
 
 header{
   background-color: #201547;
-  position: fixed;
-  z-index: 3;
-  width: 100%;
-  max-width: 1350px;
 }
 
 header .wrapper{ 
