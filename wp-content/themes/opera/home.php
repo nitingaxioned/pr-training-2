@@ -2,7 +2,7 @@
 /**
 * Template Name: Home
 */
-$work = get_field('work');
+$work = get_field('work_post');
 get_header();
 ?>
 <!--main section start-->
