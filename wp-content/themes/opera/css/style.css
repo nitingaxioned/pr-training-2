@@ -451,6 +451,8 @@ body {
 .work-bg,
 .video-bg { 
   width: 100%; 
+  height: 100%;
+  object-fit: cover;
   align-items: center;
 }
 
@@ -672,6 +674,7 @@ footer img {
   body { border: 10px solid #201547; }
   .work-sec h3 span,
   .work-sec h3 span { font-size: 35px; }
+  .nav-list li a  { margin-left: 0; }
 
   footer .custom-logo { 
     margin-left: 50%; 
@@ -681,6 +684,7 @@ footer img {
   .work-data-img {
     width: 70%;
     position: absolute;
+    max-width: 300px;
     top: auto;
     right: auto;
     transform: translate(0,0);
@@ -705,5 +709,4 @@ footer img {
     width: 100%;
     margin-top: 20px;
   }
-
 } 

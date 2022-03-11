@@ -12,9 +12,11 @@ if ($banner) {
     </video>
     <?php }
     if ($banner_data) { ?>
+    <div class="wrapper">
         <div class="banner-data">
             <?php echo $banner_data; ?>
         </div>
+    </div>
     <?php } ?>
 </section>
 <?php
