@@ -668,8 +668,23 @@ footer img {
   } 
 
   .footer-nav  .nav-list ul::after{ content: none; }
-
   .footer-sub-nav { justify-content: center; }
+  body { border: 10px solid #201547; }
+  .work-sec h3 span,
+  .work-sec h3 span { font-size: 35px; }
+
+  footer .custom-logo { 
+    margin-left: 50%; 
+    transform: translateX(-50%);
+  }
+
+  .work-data-img {
+    width: 70%;
+    position: absolute;
+    top: auto;
+    right: auto;
+    transform: translate(0,0);
+  }
 }  
 
 /*media query for 720px starts here*/

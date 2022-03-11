@@ -133,6 +133,6 @@ $(document).ready(function(){
 
     // scrollyfy
     $.scrollify({
-        section : ".scrollify-sec",
+        // section : ".scrollify-sec",
     });
 });
