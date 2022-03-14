@@ -135,4 +135,16 @@ $(document).ready(function(){
     $.scrollify({
         // section : ".scrollify-sec",
     });
+
+
+    // for click slide 
+    let slide = $(".slide-titles li").length;
+    let height = 100/slide;
+    $('<style>.slide-progress-bar:after {height: ' + height + '%;}</style>').appendTo('head');
+
+    $(".slide-titles li").click(function() {
+        let i = $(this).index();
+        $('<style>.slide-progress-bar:after {height: ' + height*(i+1) + '%;}</style>').appendTo('head');
+        $(".slide-imgs").css("transform", "translateX(-"+100*i+"%)");
+    });
 });
