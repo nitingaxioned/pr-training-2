@@ -525,6 +525,7 @@ body {
   padding: 0 50px;
   justify-content: space-between;
 }
+
 .slide-imgs-container {
   width: 45%;
   height: 100%;
@@ -546,6 +547,11 @@ body {
   height: 100%;
 }
 
+.slide-titles-container {
+  width: 45%;
+  position: relative;
+}
+
 .slide-titles {
   width: 45%;
   display: flex;
@@ -553,31 +559,36 @@ body {
   color: #e31c73;
 }
 
-.slide-titles li{ padding: 10px; }
-.slide-titles h3{ color: #e31c73; }
+.slide-titles li{ 
+  margin: 10px 0; 
+  width: 100%;
+  transition: all .5s ease;
+  transform: translateX(0) !important;
+}
+
+.slide-titles h3{
+  color: #e31c73;
+  cursor: pointer;
+}
 
 .slide-progress-bar {
-  position: relative;
-  display: inline-block;
   width: 5px;
-  min-height: max-content ;
   background: #f1f1f1;
   border-radius: 4px;
   overflow: hidden;
+}
+
+.slide-progress-bar span {
+  display: block;
+  width: 100%;
+  height: 0;
+  border-radius: 4px;
+  background: #e31c73;
+  transition: all .5s ease;
   text-indent: -9999px;
 }
 
-.slide-progress-bar:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 10%;
-  border-radius: 4px;
-  background: #e31c73;
-  animation: load 5s infinite;
-  transition: all .5s ease;
-}
+.slide-controls { display: none; }
 
 /*=================================
   main styling ends here
@@ -750,6 +761,58 @@ footer img {
     top: auto;
     right: auto;
     transform: translate(0,0);
+  }
+
+  .slides-container {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .slide-titles-container,
+  .slide-imgs-container {
+    width: 100%;
+    height: auto;
+  }
+  
+  .slide-titles {
+    width: 100%;
+    margin: auto;
+    flex-direction: row;
+    overflow: hidden;
+    color: #e31c73;
+  }
+
+  .slide-titles li { min-width: 100%; }
+  .slide-titles h3 { cursor: auto; }
+
+  .slide-progress-bar {
+    width: 100%;
+    height: 5px;
+    margin: 10px 0;
+    background: #f1f1f1;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .slide-progress-bar span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: 4px;
+    background: #e31c73;
+    transition: all .5s ease;
+    text-indent: -9999px;
+  }
+
+  .slide-controls{ display: block; }
+
+  .slide-controls a{
+    padding: 2px 5px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: #e31c73;
+    color: #201547;
+    
   }
 }  
 
